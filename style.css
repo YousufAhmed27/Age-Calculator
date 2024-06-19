@@ -1,0 +1,217 @@
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(0, 0%, 94%);
+}
+
+@font-face {
+  font-family: PopinBold;
+  src: url(./Poppins-Bold.ttf);
+}
+@font-face {
+  font-family: PopinBoldItalic;
+  src: url(./Poppins-ExtraBoldItalic.ttf);
+}
+.container {
+  max-width: 1536px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.container .card {
+  width: 680px;
+  background-color: white;
+  border-radius: 10px 10px 200px 10px;
+  padding: 40px;
+  flex-direction: column;
+  align-items: start;
+}
+.container .card .inputs {
+  gap: 10px;
+  font-family: PopinBold;
+}
+.container .card .inputs .group {
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
+  position: relative;
+}
+.container .card .inputs .group label {
+  font-size: 0.7rem;
+}
+.container .card .inputs .group label.err {
+  color: hsl(0, 100%, 67%);
+}
+.container .card .inputs .group input {
+  width: 165px;
+  height: 70px;
+  padding: 20px;
+  font-size: 2rem;
+  border: rgba(0, 0, 0, 0.1) 1px solid;
+}
+.container .card .inputs .group input:focus {
+  border: hsl(259, 100%, 65%) 2px solid;
+  outline: none;
+}
+.container .card .inputs .group input.err {
+  border: hsl(0, 100%, 67%) 2px solid;
+}
+.container .card .inputs .group span {
+  font-size: 0.7rem;
+  position: absolute;
+  bottom: -20px;
+  color: hsl(0, 100%, 67%);
+  display: none;
+}
+.container .card .inputs .group span.show {
+  display: block;
+}
+.container .card .seperator {
+  width: 100%;
+  position: relative;
+  justify-content: end;
+}
+.container .card .seperator .image {
+  background-color: hsl(259, 100%, 65%);
+  z-index: 1;
+  padding: 7px;
+}
+.container .card .seperator .image:hover {
+  background-color: black;
+}
+.container .card .seperator::before {
+  content: "";
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background-color: hsl(0, 0%, 86%);
+  height: 3px;
+}
+.container .card .output {
+  flex-direction: column;
+  gap: 10px;
+  font-size: 3rem;
+  align-self: start;
+  align-items: start;
+}
+.container .card .output .hold {
+  align-items: end;
+  gap: 60px;
+  font-family: PopinBoldItalic;
+  color: hsl(259, 100%, 65%);
+}
+.container .card .output .hold .bold {
+  color: black;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+  place-content: center;
+}
+
+.cir {
+  border-radius: 50%;
+}
+
+.edge {
+  border-radius: 10px;
+}
+
+@media (max-width: 1536px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+@media (max-width: 1280px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (max-width: 1024px) {
+  .container {
+    max-width: 768px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    max-width: 640px;
+  }
+  .container .card {
+    align-items: center;
+    width: 600px;
+  }
+  .container .card .seperator {
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .container .card .seperator::before {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .container .card .output {
+    align-self: center;
+    align-items: center;
+  }
+}
+@media (max-width: 640px) {
+  .container {
+    max-width: 475px;
+  }
+  .container .card {
+    width: 450px;
+  }
+  .container .card .inputs .group input {
+    width: 100px;
+    height: 50px;
+    font-size: 1rem;
+  }
+  .container .card .inputs .group span {
+    font-size: 0.5rem;
+  }
+  .container .card .output .hold {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 475px) {
+  .container {
+    max-width: 100vh;
+  }
+  .container .card {
+    width: 90vw;
+  }
+  .container .card .inputs {
+    margin-bottom: 10px;
+  }
+  .container .card .inputs .group input {
+    width: 100%;
+    height: 50px;
+    font-size: 0.7rem;
+  }
+  .container .card .inputs .group span {
+    bottom: -25px;
+  }
+  .container .card .output .hold {
+    font-size: 1.5rem;
+  }
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,254 @@
+@use "./variables" as *;
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $Offwhite;
+}
+
+@font-face {
+    font-family: PopinBold;
+    src: url(./Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: PopinBoldItalic;
+    src: url(./Poppins-ExtraBoldItalic.ttf);
+}
+
+.container {
+    max-width: 1536px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $small;
+    padding-right: $small;
+}
+
+.container .card {
+    width: $cardwidth;
+    background-color: white;
+    border-radius: 10px 10px 200px 10px;
+    padding: 40px;
+    flex-direction: column;
+    align-items: start;
+
+    .inputs {
+        gap: 10px;
+        font-family: PopinBold;
+
+        .group {
+            flex-direction: column;
+            align-items: start;
+            gap: 5px;
+            position: relative;
+
+            label {
+                font-size: ($small + 0.2rem);
+
+                &.err {
+                    color: $Lightred;
+                }
+            }
+
+            input {
+                width: 165px;
+                height: 70px;
+                padding: 20px;
+                font-size: $large;
+                border: rgba(0, 0, 0, 0.1) 1px solid;
+
+                &:focus {
+                    border: #{$Purple} 2px solid;
+                    outline: none;
+                }
+
+                &.err {
+                    border: $Lightred 2px solid;
+                }
+            }
+
+            span {
+                font-size: $small + 0.2rem;
+                position: absolute;
+                bottom: -20px;
+                color: $Lightred;
+                display: none;
+
+                &.show {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .seperator {
+        width: 100%;
+        position: relative;
+        justify-content: end;
+
+        .image {
+            background-color: $Purple;
+            z-index: 1;
+            padding: 7px;
+
+            &:hover {
+                background-color: black;
+            }
+        }
+
+        &::before {
+            content: "";
+            width: 90%;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            background-color: $Lightgrey;
+            height: 3px;
+        }
+    }
+
+    .output {
+        flex-direction: column;
+        gap: 10px;
+        font-size: 3rem;
+        align-self: start;
+        align-items: start;
+
+        .hold {
+            align-items: end;
+            gap: 60px;
+            font-family: PopinBoldItalic;
+            color: $Purple;
+
+            .bold {
+                color: black;
+            }
+        }
+    }
+}
+
+@each $key, $val in $classes {
+    @each $skey, $sval in $val {
+        .#{$skey} {
+            #{$key} : #{$skey};
+
+            @if $sval !=null {
+                @each $sskey, $ssval in $sval {
+                    #{$sskey}:#{$ssval}
+                }
+            }
+        }
+    }
+}
+
+@each $key, $val in $clas {
+    @each $skey, $sval in $val {
+        .#{$key} {
+            #{$skey} : #{$sval}
+        }
+    }
+}
+
+@mixin breakpoint($maxwidth, $contwidth) {
+    @media (max-width : $maxwidth) {
+        .container {
+            max-width: $contwidth;
+        }
+
+        @content
+    }
+}
+
+@include breakpoint(1536px, 1280px) {}
+
+@include breakpoint(1280px, 1024px) {}
+
+@include breakpoint(1024px, 768px) {}
+
+@include breakpoint(768px, 640px) {
+    .container .card {
+        align-items: center;
+        width: 600px;
+
+        .seperator {
+            justify-content: center;
+            margin-top: 20px;
+
+            &::before {
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .output {
+            align-self: center;
+            align-items: center;
+        }
+    }
+}
+
+@include breakpoint(640px, 475px) {
+    .container .card {
+        width: 450px;
+
+        .inputs {
+            .group {
+                input {
+                    width: 100px;
+                    height: 50px;
+                    font-size: #{$normal};
+                }
+
+                span {
+                    font-size: 0.5rem;
+                }
+            }
+        }
+
+        .output {
+            .hold {
+                font-size: $large;
+            }
+        }
+    }
+}
+
+@include breakpoint(475px, 100vh) {
+    .container .card {
+        width: 90vw;
+
+        .inputs {
+            margin-bottom: 10px;
+
+            .group {
+                input {
+                    width: 100%;
+                    height: 50px;
+                    font-size: 0.7rem;
+                }
+
+                span {
+                    bottom: -25px;
+                }
+            }
+        }
+
+        .output {
+            .hold {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}

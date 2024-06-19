@@ -1,0 +1,21 @@
+$Purple: hsl(259, 100%, 65%);
+$Lightred: hsl(0, 100%, 67%);
+$Lightgrey: hsl(0, 0%, 86%);
+$Smokeygrey: hsl(0, 1%, 44%);
+$Offblack: hsl(0, 0%, 8%);
+$Offwhite: hsl(0, 0%, 94%);
+$normal : 1rem;
+$small : 0.5rem;
+$large : 2rem;
+$omg : 3rem;
+$cardwidth : 680px;
+
+$classes : ("display": ("flex": ("align-items":"center",
+            "justify-content": "center"
+        ),
+        "grid":("place-content": "center"
+        )));
+
+$clas : ("cir" : ("border-radius" : "50%"
+    ), "edge" : ("border-radius" : "10px"
+    ))
